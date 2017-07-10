@@ -1,0 +1,6 @@
+/var/vts
+/var/vts/mapproxy
+/var/vts/mapproxy/datasets
+/var/vts/store
+/var/vts/map-config
+/var/vts/stylesheet
