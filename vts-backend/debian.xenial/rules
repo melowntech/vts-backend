@@ -1,0 +1,6 @@
+#!/usr/bin/make -f
+# -*- gnumakefile -*-
+
+# default rule
+%:
+	dh $@

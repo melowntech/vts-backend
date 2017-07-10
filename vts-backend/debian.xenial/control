@@ -1,0 +1,17 @@
+Source: vts-vtsd
+Section: misc
+Priority: extra
+Maintainer: Vaclav Blazek <vaclav.blazek@melown.com>
+Build-Depends: debhelper (>= 9.20160115ubuntu3)
+Standards-Version: 3.8.4
+Homepage: https://www.melown.com/maps
+
+Package: vts-vtsd
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+         , vts-mapproxy
+         , vts-mapproxy-tools
+         , vts-registry
+         , vts-tools
+         , vts-vtsd
+Description: VTS Backend integration
