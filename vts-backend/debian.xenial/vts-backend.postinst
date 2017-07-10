@@ -19,7 +19,9 @@ set -e
 
 HOME=/var/vts
 DIRS="mapproxy mapproxy/datasets store map-config stylesheet"
- create_user() {
+
+# creates user vts and group vts
+create_user() {
     if ! getent group vts >/dev/null; then
         # Adding system group: vts.
         addgroup --system vts >/dev/null
@@ -28,19 +30,19 @@ DIRS="mapproxy mapproxy/datasets store map-config stylesheet"
     if ! getent passwd vts >/dev/null; then
         # Adding system user: vts.
         adduser \
-          --system \
-          --ingroup vts \
-          --no-create-home \
-          --home "${HOME}" \
-          --gecos "VTS user" \
-          --shell /bin/sh \
-          vts  >/dev/null
+            --ingroup vts \
+            --no-create-home \
+            --disabled-password \
+            --home "${HOME}" \
+            --gecos "VTS user" \
+            --shell /bin/bash \
+            vts >/dev/null
     fi
 }
 
 function change_overship() {
-    for dir in "${DIRS}"; do
-        chowm vts:vts "${HOME}/${dir}"
+    for dir in ${DIRS}; do
+        chown vts:vts "${HOME}/${dir}"
     done
 }
 
