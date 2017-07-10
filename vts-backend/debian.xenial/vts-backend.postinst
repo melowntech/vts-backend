@@ -3,8 +3,6 @@
 #
 # see: dh_installdeb(1)
 
-set -e
-
 # summary of how this script can be called:
 #        * <postinst> `configure' <most-recently-configured-version>
 #        * <old-postinst> `abort-upgrade' <new version>
@@ -19,6 +17,7 @@ set -e
 
 HOME=/var/vts
 DIRS="mapproxy mapproxy/datasets store map-config stylesheet"
+STORAGE_BASE="${HOME}/store/stage"
 
 # creates user vts and group vts
 create_user() {
@@ -46,10 +45,40 @@ function change_overship() {
     done
 }
 
+function create_storage() {
+    RF="$1"
+    STORAGE="$2"
+    TMP="${STORAGE}.tmp"
+
+    if test -a "${STORAGE}"; then return 0; fi
+
+    function cleanup() {
+        test -a "${TMP}" && rm -R "${TMP}"
+    }
+
+    trap cleanup EXIT
+    cleanup
+
+    echo "Creating VTS storage ${STORAGE} for reference frame ${RF}." >/dev/stderr
+    /opt/vts/bin/vts "${TMP}" --create --referenceFrame "${RF}"
+
+    mv "${TMP}" "${STORAGE}"
+    trap - EXIT
+
+    return 0
+}
+
+function create_storages() {
+    /opt/vts/bin/vts . --list-reference-frames | while read rf; do
+        create_storage "${rf}" "${STORAGE_BASE}.${rf}"
+    done
+}
+
 case "$1" in
     configure)
         create_user
         change_overship
+        create_storages
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
