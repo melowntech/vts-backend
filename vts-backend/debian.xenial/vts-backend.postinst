@@ -18,6 +18,7 @@
 HOME=/var/vts
 DIRS="mapproxy mapproxy/datasets store store/map-config store/stylesheet"
 STORAGE_BASE="${HOME}/store/stage"
+NGINX=/etc/init.d/nginx
 
 # creates user vts and group vts
 create_user() {
@@ -74,11 +75,17 @@ function create_storages() {
     done
 }
 
+function reload_nginx() {
+    # start or reload nginx
+    ${NGINX} status >/dev/null && ${NGINX} reload || ${NGINX} start
+}
+
 case "$1" in
     configure)
         create_user
         change_overship
         create_storages
+        reload_nginx
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
