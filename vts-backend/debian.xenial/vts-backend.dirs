@@ -1,7 +1,1 @@
-/var/vts
-/var/vts/mapproxy
-/var/vts/mapproxy/datasets
-/var/vts/store
-/var/vts/store/map-config
-/var/vts/store/stylesheet
-/var/log/vts
+../debian-common/vts-backend.dirs

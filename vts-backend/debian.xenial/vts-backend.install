@@ -1,5 +1,1 @@
-etc/mapproxy/mapproxy.conf /etc/vts/mapproxy
-etc/mapproxy/resources.json /etc/vts/mapproxy
-etc/vtsd/vtsd.conf /etc/vts/vtsd
-etc/nginx/vts-backend /etc/nginx/sites-available
-etc/profile.d/vts.sh /etc/profile.d
+../debian-common/vts-backend.install
