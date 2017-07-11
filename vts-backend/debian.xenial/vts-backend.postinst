@@ -16,7 +16,7 @@
 # the debian-policy package
 
 HOME=/var/vts
-DIRS="mapproxy mapproxy/datasets store map-config stylesheet"
+DIRS="mapproxy mapproxy/datasets store store/map-config store/stylesheet"
 STORAGE_BASE="${HOME}/store/stage"
 
 # creates user vts and group vts

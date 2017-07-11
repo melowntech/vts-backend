@@ -8,7 +8,7 @@ Homepage: https://www.melown.com/maps
 
 Package: vts-backend
 Architecture: any
-Depends: ${misc:Depends}, socat
+Depends: ${misc:Depends}, socat, nginx
          , vts-mapproxy
          , vts-mapproxy-tools
          , vts-registry

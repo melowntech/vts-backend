@@ -1,0 +1,49 @@
+# proxy cache configuration
+proxy_cache_path /var/vts/cache levels=2:2 keys_zone=vts-backend:30m max_size=300m loader_sleep=1000 inactive=2w;
+
+upstream vts-backend-vtsd {
+    server 127.0.0.1:3060;
+}
+
+upstream vts-backend-mapproxy {
+    server 127.0.0.1:3070;
+}
+
+# virtual server
+server {
+    # port based server
+    listen 8070;
+    server_name _;
+
+    # no actual root
+    root /dev/null;
+
+    # logging
+    access_log /var/log/vts/vts-backend_access.log;
+    error_log /var/log/vts/vts-backend_error.log;
+
+    # mapproxy paths
+    location ~ /mapproxy/(.*) {
+        # do not let CORS to get in the way
+        add_header Access-Control-Allow-Origin "*";
+
+        # forward to mapproxy upstream
+        proxy_pass http://vts-backend-mapproxy/$1$is_args$args;
+        proxy_redirect off;
+        proxy_cache vts-backend;
+    }
+
+    # store paths
+    location ~ /store/(.*) {
+        # do not let CORS to get in the way
+        add_header Access-Control-Allow-Origin "*";
+
+        # forward to vtsd upstream
+        proxy_pass http://vts-backend-vtsd/$1$is_args$args;
+        proxy_redirect off;
+        proxy_cache vts-backend;
+    }
+
+    # mimic directory-like fashion for these slashless paths
+    rewrite ^(/store|/mapproxy)$ $1/ permanent;
+}
