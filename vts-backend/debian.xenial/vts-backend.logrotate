@@ -1,0 +1,27 @@
+/var/log/vts/mapproxy.log {
+    daily
+    missingok
+    rotate 52
+    compress
+    delaycompress
+    notifempty
+    create 0644 vts vts
+    sharedscripts
+    postrotate
+        /etc/init.d/vts-backend-mapproxy reload
+    endscript
+}
+
+/var/log/vts/vtsd.log {
+    daily
+    missingok
+    rotate 52
+    compress
+    delaycompress
+    notifempty
+    create 0644 vts vts
+    sharedscripts
+    postrotate
+        /etc/init.d/vts-backend-vtsd reload
+    endscript
+}

@@ -1,5 +1,5 @@
-vts-backend (1.0) melown-xenial; urgency=low
+vts-backend (1.1) melown-xenial; urgency=low
 
   * Initial release for Ubuntu/Xenial
 
- -- Vaclav Blazek <vaclav.blazek@melown.com>  Mon, 10 Jul 2017 15:31:02 +0200
+ -- Vaclav Blazek <vaclav.blazek@melown.com>  Mon, 11 Jul 2017 13:56:02 +0200
