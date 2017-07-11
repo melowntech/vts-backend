@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if test $# -eq 0; then
+    exec sudo -iu vts
+fi
+
+exec sudo -u vts "$@"
