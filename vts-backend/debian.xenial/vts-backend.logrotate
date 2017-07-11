@@ -1,3 +1,4 @@
+# Rotate mapproxy logs
 /var/log/vts/mapproxy.log {
     daily
     missingok
@@ -12,6 +13,7 @@
     endscript
 }
 
+# Rotate vtsd logs
 /var/log/vts/vtsd.log {
     daily
     missingok
@@ -23,5 +25,25 @@
     sharedscripts
     postrotate
         /etc/init.d/vts-backend-vtsd reload
+    endscript
+}
+
+# Rotate our nginx logs; based on debian nginx package logrotate
+/var/log/vts/vts-backend_*.log {
+    daily
+    missingok
+    rotate 52
+    compress
+    delaycompress
+    notifempty
+    create 0644 www-data adm
+    sharedscripts
+    prerotate
+        if [ -d /etc/logrotate.d/httpd-prerotate ]; then \
+            run-parts /etc/logrotate.d/httpd-prerotate; \
+        fi; \
+    endscript
+    postrotate
+        [ ! -f /var/run/nginx.pid ] || kill -USR1 `cat /var/run/nginx.pid`
     endscript
 }
