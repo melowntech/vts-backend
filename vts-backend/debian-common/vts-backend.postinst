@@ -15,6 +15,7 @@
 # for details, see http://www.debian.org/doc/debian-policy/ or
 # the debian-policy package
 
+USER=vts
 HOME=/var/vts
 DIRS="mapproxy mapproxy/datasets store store/map-config store/stylesheet"
 STORAGE_BASE="${HOME}/store/stage"
@@ -22,27 +23,27 @@ NGINX=/etc/init.d/nginx
 
 # creates user vts and group vts
 create_user() {
-    if ! getent group vts >/dev/null; then
+    if ! getent group ${USER} >/dev/null; then
         # Adding system group: vts.
-        addgroup --system vts >/dev/null
+        addgroup --system ${USER} >/dev/null
     fi
 
-    if ! getent passwd vts >/dev/null; then
+    if ! getent passwd ${USER} >/dev/null; then
         # Adding system user: vts.
         adduser \
-            --ingroup vts \
+            --ingroup ${USER} \
             --no-create-home \
             --disabled-password \
             --home "${HOME}" \
             --gecos "VTS user" \
             --shell /bin/bash \
-            vts >/dev/null
+            ${USER} >/dev/null
     fi
 }
 
 function change_overship() {
     for dir in ${DIRS}; do
-        chown vts:vts "${HOME}/${dir}"
+        chown ${USER}:${USER} "${HOME}/${dir}"
     done
 }
 
@@ -60,8 +61,9 @@ function create_storage() {
     trap cleanup EXIT
     cleanup
 
+    # create VTS storages for all available reference frames under vts user.
     echo "Creating VTS storage ${STORAGE} for reference frame ${RF}." >/dev/stderr
-    /opt/vts/bin/vts "${TMP}" --create --referenceFrame "${RF}"
+    su -c "/opt/vts/bin/vts ${TMP} --create --referenceFrame ${RF}" ${USER} || return
 
     mv "${TMP}" "${STORAGE}"
     trap - EXIT
@@ -71,7 +73,7 @@ function create_storage() {
 
 function create_storages() {
     /opt/vts/bin/vts . --list-reference-frames | while read rf; do
-        create_storage "${rf}" "${STORAGE_BASE}.${rf}"
+        create_storage "${rf}" "${STORAGE_BASE}.${rf}" || return
     done
 }
 
@@ -84,7 +86,7 @@ case "$1" in
     configure)
         create_user
         change_overship
-        create_storages
+        create_storages || exit
         reload_nginx
     ;;
 
