@@ -17,7 +17,8 @@
 
 USER=vts
 HOME=/var/vts
-DIRS="mapproxy mapproxy/datasets store store/map-config store/stylesheet"
+HOME_DIRS="mapproxy mapproxy/datasets store store/map-config store/stylesheet"
+OTHER_DIRS_RECURSIVE="/etc/vts/"
 STORAGE_BASE="${HOME}/store/stage"
 NGINX=/etc/init.d/nginx
 
@@ -42,8 +43,12 @@ create_user() {
 }
 
 function change_overship() {
-    for dir in ${DIRS}; do
+    for dir in ${HOME_DIRS}; do
         chown ${USER}:${USER} "${HOME}/${dir}"
+    done
+
+    for dir in ${OTHER_DIRS_RECURSIVE}; do
+        chown -R ${USER}:${USER} "${dir}"
     done
 }
 

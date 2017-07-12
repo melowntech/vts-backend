@@ -1,0 +1,23 @@
+<GDAL_WMS>
+    <Service name="TMS">
+      <ServerUrl>http://maps1.wien.gv.at/basemap/bmaporthofoto30cm/normal/google3857/${z}/${y}/${x}.jpeg</ServerUrl>
+      <Transparent>TRUE</Transparent>
+    </Service>
+    <DataWindow>
+       <UpperLeftX>-20037508.34</UpperLeftX>
+       <UpperLeftY>20037508.34</UpperLeftY>
+       <LowerRightX>20037508.34</LowerRightX>
+       <LowerRightY>-20037508.34</LowerRightY>
+       <TileLevel>18</TileLevel>
+       <TileCountX>1</TileCountX>
+       <TileCountY>1</TileCountY>
+       <YOrigin>top</YOrigin>
+   </DataWindow>
+   <Projection>EPSG:3857</Projection>
+   <BlockSizeX>256</BlockSizeX>
+   <BlockSizeY>256</BlockSizeY>
+   <BandsCount>4</BandsCount>
+   <OverviewCount>10</OverviewCount>
+   <ZeroBlockHttpCodes>404</ZeroBlockHttpCodes>   
+   <Cache />
+</GDAL_WMS>

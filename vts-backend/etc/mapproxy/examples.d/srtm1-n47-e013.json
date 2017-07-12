@@ -1,0 +1,35 @@
+[
+    {
+        "group" : "examples",
+        "id" : "srtm1-n47-e013",
+        "comment" : "SRTM 1 Arc-Second DEM 1x1 degree tile at 47N 13E",
+        "driver" : "surface-dem",
+        "definition" : {
+            "dataset" : "srtm1-n47-e013",
+            "geoidGrid" : "egm96_15.gtx",
+            "introspection": {
+                "tms": {
+                    "group": "examples",
+                    "id": "basemap-at-ophoto"
+                },
+                "position": ["obj",13.610060,47.470677,"float",0,-8.40,-41.07,0.00,5960.08,55.00]
+            }
+        },
+        "type" : "surface",
+        "referenceFrames": {
+            "melown2015" : {
+                "lodRange" : [9,20],
+                "tileRange" : [[137,88],[137,90]]
+            }
+        },
+        "registry" : {
+            "credits": {
+                "usgs": {
+                    "id": 2,
+                    "notice": "U.S. Geological Survey"
+                }
+            }
+        },
+        "credits" : ["usgs"]
+    }
+]

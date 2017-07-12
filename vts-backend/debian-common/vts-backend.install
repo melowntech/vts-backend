@@ -1,6 +1,9 @@
 etc/mapproxy/mapproxy.conf /etc/vts/mapproxy
 etc/mapproxy/resources.json /etc/vts/mapproxy
+etc/mapproxy/examples.d/*.json /etc/vts/mapproxy/examples.d
 etc/vtsd/vtsd.conf /etc/vts/vtsd
 etc/nginx/vts-backend /etc/nginx/sites-available
 etc/profile.d/vts.sh /etc/profile.d
 bin/suvts /usr/bin
+
+datasets/* /var/vts/mapproxy/datasets

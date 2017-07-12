@@ -1,0 +1,29 @@
+[
+    {
+        "group" : "examples",
+        "id" : "basemap-at-ophoto",
+        "comment" : "Geoland Basemap 30cm orthophoto of Austria",
+        "type" : "tms",
+        "driver" : "tms-raster",
+        "definition" : {
+            "dataset" : "basemap-at-ophoto",
+            "format" : "jpg",
+            "transparent" : false
+        },
+        "referenceFrames" : {
+            "melown2015" : {
+                "lodRange" : [9, 19],
+                "tileRange" : [[134, 88], [140, 90]]
+            }
+        },
+        "registry" : {
+            "credits" : {
+                "basemap-at" : {
+                    "id" : 104,
+                    "notice" : "Data source: [http://www.basemap.at/ www.basemap.at]"
+                }
+            }
+        },
+        "credits" : ["basemap-at"]
+    }
+]

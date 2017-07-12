@@ -1,0 +1,15 @@
+<VRTDataset rasterXSize="451" rasterYSize="451">
+  <SRS>GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AUTHORITY["EPSG","4326"]]</SRS>
+  <GeoTransform>  1.2999861111111111e+01,  2.2179108154717891e-03,  0.0000000000000000e+00,  4.8000138888888891e+01,  0.0000000000000000e+00, -2.2179108154717852e-03</GeoTransform>
+  <VRTRasterBand dataType="Int16" band="1">
+    <NoDataValue>-32768</NoDataValue>
+    <ColorInterp>Gray</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1" shared="0">0-0.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="451" RasterYSize="451" DataType="Int16" BlockXSize="451" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="451" ySize="451" />
+      <DstRect xOff="0" yOff="0" xSize="451" ySize="451" />
+    </SimpleSource>
+  </VRTRasterBand>
+</VRTDataset>
