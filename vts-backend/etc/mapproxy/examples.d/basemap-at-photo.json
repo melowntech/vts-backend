@@ -6,7 +6,7 @@
         "type" : "tms",
         "driver" : "tms-raster",
         "definition" : {
-            "dataset" : "basemap-at-ophoto",
+            "dataset" : "examples/basemap-at-ophoto",
             "format" : "jpg",
             "transparent" : false
         },

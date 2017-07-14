@@ -5,7 +5,7 @@
         "comment" : "SRTM 1 Arc-Second DEM 1x1 degree tile at 47N 13E",
         "driver" : "surface-dem",
         "definition" : {
-            "dataset" : "srtm1-n47-e013",
+            "dataset" : "examples/srtm1-n47-e013",
             "geoidGrid" : "egm96_15.gtx",
             "introspection": {
                 "tms": {
