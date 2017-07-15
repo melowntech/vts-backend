@@ -1,3 +1,9 @@
+vts-backend (1.6) melown-xenial; urgency=medium
+
+  * Updated dependencies to latest vts-* packages.
+
+ -- Vaclav Blazek <vaclav.blazek@citationtech.net>  Sat, 15 Jul 2017 20:52:34 +0200
+
 vts-backend (1.5) melown-xenial; urgency=low
 
   * Initial release for Ubuntu/Xenial
