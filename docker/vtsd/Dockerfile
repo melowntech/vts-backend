@@ -28,7 +28,7 @@ RUN apt-get update && \
     cd /etc/apt/sources.list.d/ && \
     wget http://cdn.melown.com/packages/conf/melown-xenial.list && \
     wget -O - http://cdn.melown.com/packages/keys/oss.packages%40melown.com.key | apt-key add - && apt-get update && \
-    apt-get -y install vts-tools vts-vtsd nginx && apt-get clean
+    apt-get -y install vts-tools vts-vtsd && apt-get clean
 RUN mkdir -p /var/log/vts/
 
 EXPOSE 3060
