@@ -47,10 +47,6 @@ docker volume create mapproxy-dataset
 
 3. Adjust and copy the `resources.json` file to target volume
 
-################################################################
-# TODO TADY TO NEFUNGUJE
-################################################################
-
 ```
 $EDITOR docker/mapproxy/resources.json
 docker volume cp docker/mapproxy/resources.json mapproxy-dataset:/
