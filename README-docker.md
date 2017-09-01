@@ -2,6 +2,9 @@
 
 ## Build
 
+Before you start, please make sure, you did `make` in the `vts-backend`
+directory, as described in the [README.md](README.md) file.
+
 ### VTS-VTSD
 
 ```
