@@ -1,3 +1,4 @@
 [
-    { "include": "/etc/vts/mapproxy/examples.d/*.json" }
+    { "include": ["/etc/vts/mapproxy/examples.d/*.json",
+                  "/vts/datasets/*/resources.json"] }
 ]
