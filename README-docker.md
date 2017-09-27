@@ -48,3 +48,16 @@ docker run -ti -p 3070:3070 --name mapproxy vts-mapproxy
 ```
 
 You should be able to visit http://localhost:3070/melown2015/surface/examples/srtm1-n47-e013/ and see some nice surfaces.
+
+2.  If you have already configured mapproxy project, you can add your local
+ directory with the project to the image:
+
+```
+docker run -ti -p 3070:3070 --name mapproxy --rm -v projects/mapproxy-wmts:/vts/datasets/mapproxy-wmts:rw vts-mapproxy
+```
+
+In this example, we've add local `projects/mapproxy-wmts` directory to
+`/vts/datasets/`. the `mapproxy-wmts` directory is cotaining `resources.json`
+file, which is essential for mapproxy. Then you can visit
+http://localhost:3070/melown2015/surface/melown/dem/ and see the example,
+already published at http://vtsdocs.melown.com/en/latest/server/mapproxy/examples/freelayer.html
