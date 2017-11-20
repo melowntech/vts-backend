@@ -1,3 +1,10 @@
+vts-backend (1.8) melown-xenial; urgency=medium
+
+  * Updated dependencies to latest vts-* packages.
+  * Bugfix release. 
+
+ -- Ladislav Horky <ladislav.horky@citationtech.net>  Mon, 20 Nov 2017 14:34:32 +0100
+
 vts-backend (1.7) melown-xenial; urgency=medium
 
   * Updated dependencies to latest vts-* packages.
