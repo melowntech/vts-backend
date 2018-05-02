@@ -1,0 +1,5 @@
+vts-backend (1.4) melown-bionic; urgency=low
+
+  * Initial release for Ubuntu/Bionic
+
+ -- Vaclav Blazek <vaclav.blazek@melown.com>  Mon, 11 Jul 2017 13:56:02 +0200
