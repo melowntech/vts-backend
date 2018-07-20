@@ -1,3 +1,9 @@
+vts-backend (1.9) melown-bionic; urgency=medium
+
+  * No resource freezing in mapproxy
+
+ -- Vaclav Blazek <vaclav.blazek@citationtech.net>  Tue, 15 May 2018 15:23:46 +0200
+
 vts-backend (1.8) melown-xenial; urgency=medium
 
   * Updated dependencies to latest vts-* packages.
