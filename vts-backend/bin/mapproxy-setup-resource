@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# default config file for vts-backend
+CONFIG="/etc/vts/mapproxy/mapproxy-setup-resource.conf"
+
+# run real binary, pass all cmdline options, config file as added at the end of
+# the cmdline to allow user's override
+/opt/vts/bin/mapproxy-setup-resource "$@" -f "${CONFIG}"

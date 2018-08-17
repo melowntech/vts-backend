@@ -1,6 +1,9 @@
 #!/usr/bin/make -f
 # -*- gnumakefile -*-
 
+# include common debian support
+include buildsys/common/include/debian.mk
+
 # default rule
 %:
 	dh $@

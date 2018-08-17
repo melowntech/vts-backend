@@ -5,3 +5,6 @@
 /var/vts/store/map-config
 /var/vts/store/stylesheet
 /var/log/vts
+
+/etc/vts/mapproxy/auto.d
+/etc/vts/mapproxy/auto.d
