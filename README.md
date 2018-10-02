@@ -28,8 +28,8 @@ again. The build will not work otherwise.
 Now got to `vts-backend` directory and run `make
 
 ```
-cd vts-backend
-make
+cd vts-backend/vts-backend
+make deb
 ```
 
 NOTE: It may endup with error, saying, that the package could not be signed
