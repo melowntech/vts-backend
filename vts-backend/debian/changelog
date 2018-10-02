@@ -1,3 +1,9 @@
+vts-backend (1.9) melown-bionic; urgency=medium
+
+  * Fixed ctrl file mode/owership.
+
+ -- Vaclav Blazek <vaclav.blazek@melown.com>  Tue, 02 Oct 2018 14:42:54 +0200
+
 vts-backend (1.8) melown-bionic; urgency=medium
 
   * Depending on new mapproxy and registry.
