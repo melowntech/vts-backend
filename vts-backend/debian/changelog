@@ -1,3 +1,10 @@
+vts-backend (1.10) melown-bionic; urgency=medium
+
+  * Synced version (bionic/xenial)
+  * Updated vts-* dependencies to the latest greatest versions
+
+ -- Vaclav Blazek <vaclav.blazek@melown.com>  Fri, 05 Oct 2018 15:55:27 +0200
+
 vts-backend (1.9) melown-bionic; urgency=medium
 
   * Fixed ctrl file mode/owership.
