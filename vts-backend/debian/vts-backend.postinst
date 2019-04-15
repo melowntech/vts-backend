@@ -22,6 +22,9 @@ OTHER_DIRS_RECURSIVE="/etc/vts/"
 STORAGE_BASE="${HOME}/store/stage"
 NGINX=/etc/init.d/nginx
 
+NGINX_ENABLED=/etc/nginx/sites-enabled/vts-backend
+NGINX_AVAILABLE=../sites-available/vts-backend
+
 # creates user vts and group vts
 create_user() {
     if ! getent group ${USER} >/dev/null; then
@@ -82,6 +85,13 @@ function create_storages() {
     done
 }
 
+function create_symlinks() {
+    # enable nginx host
+    if [ ! -a "${NGINX_ENABLED}" ]; then
+        ln -s -T "${NGINX_AVAILABLE}" "${NGINX_ENABLED}"
+    fi
+}
+
 function reload_nginx() {
     # start or reload nginx
     ${NGINX} status >/dev/null && ${NGINX} reload || ${NGINX} start
@@ -92,6 +102,7 @@ case "$1" in
         create_user
         change_overship
         create_storages || exit
+        create_symlinks || exit
         reload_nginx
     ;;
 

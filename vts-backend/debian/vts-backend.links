@@ -1,3 +1,2 @@
-etc/nginx/sites-available/vts-backend etc/nginx/sites-enabled/vts-backend
 opt/vts/bin/mapproxy usr/bin/vts-backend-mapproxy
 opt/vts/bin/vtsd usr/bin/vts-backend-vtsd
